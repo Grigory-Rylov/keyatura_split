@@ -19,7 +19,6 @@
             RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9)
                             RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7)
                                             RC(4,0) RC(4,1)
-                                            RC(5,0) RC(5,1)
         >;
     };
 
@@ -35,12 +34,12 @@
             ;
 
         col-gpios
-		= <&gpio0 17 GPIO_ACTIVE_HIGH>
-		, <&gpio1 13 GPIO_ACTIVE_HIGH>
-		, <&gpio1 15 GPIO_ACTIVE_HIGH>
-		, <&gpio0 22 GPIO_ACTIVE_HIGH>
-		, <&gpio0 29 GPIO_ACTIVE_HIGH>
-        ;
+            = <&gpio1 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>
+            , <&gpio1 15 GPIO_ACTIVE_HIGH>
+            , <&gpio0 2 GPIO_ACTIVE_HIGH>
+            , <&gpio0 29 GPIO_ACTIVE_HIGH>
+            ;
 
     };
 

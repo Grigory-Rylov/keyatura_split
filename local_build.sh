@@ -31,7 +31,7 @@ build_mouse () {
     export NRFXLIB_MODULE_DIRS="$HOME/zmk-esb/zmk-feature-split-esb/nrfxlib"
     export ZMK_ESB_MODULE_DIRS="$HOME/zmk-esb/zmk-feature-split-esb"
     export ZMK_RGBLED_WIDGET="$HOME/zmk_modules/zmk-rgbled-widget"
-    export ZMK_PMW_3610_DRIVER="$HOME/zmk_modules/zmk-pmw3610-driver"
+    export ZMK_PMW_3610_DRIVER="$HOME/zmk_modules/efogdev-zmk-pmw3610-driver"
     export ZMK_MODULE_DIRS="${ZMK_ESB_MODULE_DIRS};${NRF_MODULE_DIRS};${NRFXLIB_MODULE_DIRS};${ZMK_PMW_3610_DRIVER};${ZMK_RGBLED_WIDGET}"
     west build \
         -p -b nice_nano_v2 \
@@ -54,7 +54,6 @@ build_dongle () {
     west build \
         -p -b nice_nano_v2 \
         -S studio-rpc-usb-uart \
-        -S zmk-usb-logging \
         -d "$CURRENT_DIR/build/$side" -- \
         -DZMK_CONFIG="$CURRENT_DIR" \
         -DSHIELD=keyatura_$side \
@@ -86,9 +85,9 @@ mkdir -p $CURRENT_DIR/build
 
 pushd $ZMK_APP_DIR
 
-build_halves left
-build_halves right
-build_dongle 
+# build_halves left
+# build_halves right
+# build_dongle 
 build_mouse
 # build_reset
 
