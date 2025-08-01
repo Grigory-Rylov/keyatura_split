@@ -79,4 +79,19 @@
         };
     };
 
+    mouse_encoder: mouse_encoder {
+        compatible = "alps,ec11";
+        status = "disabled";
+    };
+
+    dongle_encoder: dongle_encoder {
+        compatible = "alps,ec11";
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&dongle_encoder>;
+    };
+
 };

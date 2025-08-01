@@ -22,6 +22,7 @@ build_halves () {
         -DZMK_EXTRA_MODULES="${ZMK_MODULE_DIRS}" \
 
     cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_$side.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_$side.uf2"
 }
 
 build_mouse () {
@@ -41,6 +42,7 @@ build_mouse () {
         -DZMK_EXTRA_MODULES="${ZMK_MODULE_DIRS}"
 
     cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_$side.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_$side.uf2"
 }
 
 build_dongle () {
@@ -54,12 +56,14 @@ build_dongle () {
     west build \
         -p -b nice_nano_v2 \
         -S studio-rpc-usb-uart \
+        -S zmk-usb-logging \
         -d "$CURRENT_DIR/build/$side" -- \
         -DZMK_CONFIG="$CURRENT_DIR" \
         -DSHIELD=keyatura_$side \
         -DZMK_EXTRA_MODULES="${ZMK_MODULE_DIRS}"
 
     cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_$side.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_$side.uf2"
 }
 
 build_reset () {
@@ -72,6 +76,7 @@ build_reset () {
         -DSHIELD=settings_reset
 
     cp "$CURRENT_DIR/build/reset/zephyr/zmk.uf2" "$CURRENT_DIR/build/reset/reset.uf2"
+    cp "$CURRENT_DIR/build/reset/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/reset.uf2"
 }
 
 CURRENT_DIR="$(pwd)"
