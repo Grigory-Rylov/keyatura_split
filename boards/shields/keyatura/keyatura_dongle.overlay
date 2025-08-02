@@ -39,15 +39,18 @@
     };
 };
 
-&dongle_encoder {
-	compatible = "alps,ec11";
-    status = "okay";
-    // NFC pins in nRF52 series: P0.09 and P0.10
-    a-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    b-gpios = <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    steps = <96>; // <36>; for 23mm wheel, <48>; for 19mm wheel
-};
-
-&sensors {
-    triggers-per-rotation = <24>;
+/ {
+	mouse_encoder: mouse_encoder {
+		compatible = "alps,ec11";
+        status = "okay";
+		a-gpios = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		steps = <24>;
+	};
+	sensors: sensors {
+		compatible = "zmk,keymap-sensors";
+		status = "okay";
+		sensors = <&mouse_encoder>;
+		triggers-per-rotation = <12>;
+	};
 };

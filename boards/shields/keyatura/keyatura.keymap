@@ -53,10 +53,6 @@
             key-positions = <7 8>;
         };
 
-        MiddleMouse {
-            bindings = <&mkp MB3>;
-            key-positions = <36 37>;
-        };
     };
 
     behaviors {
@@ -79,13 +75,6 @@
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
         };
-
-        mouse_wheel: mouse_wheel {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp UP>, <&kp DOWN>;            // This one works
-            //bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;  // This one does not work
-        };
     };
 
     keymap {
@@ -99,7 +88,7 @@
        &u_mt LCTRL ENTER  &u_mt LSHFT SPACE  &u_mt LEFT_WIN BACKSPACE  &lt 2 DELETE  &lt 1 TAB  &u_mt LEFT_ALT ESCAPE
        &mkp MB1  &mkp MB2 
             >;
-            sensor-bindings = <&mouse_wheel>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         NAV {
@@ -110,7 +99,7 @@
           &u_mt LCTRL ENTER  &u_mt LSHFT SPACE  &u_mt LALT BACKSPACE  &trans   &trans            &trans
        &mkp MB1  &mkp MB2 
             >;
-            sensor-bindings = <&mouse_wheel>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         F_layer {
@@ -121,7 +110,7 @@
          &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans   &trans          &trans
        &mkp MB1  &mkp MB2 
             >;
-            sensor-bindings = <&mouse_wheel>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 

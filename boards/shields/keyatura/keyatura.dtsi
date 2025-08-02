@@ -78,20 +78,20 @@
             gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;  // connected to P0.11
         };
     };
+};
 
-    mouse_encoder: mouse_encoder {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
-
-    dongle_encoder: dongle_encoder {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&dongle_encoder>;
-    };
-
+/{
+	mouse_encoder: mouse_encoder {
+		compatible = "alps,ec11";
+		a-gpios = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		steps = <80>;
+		status = "disabled";
+	};
+	sensors: sensors {
+		compatible = "zmk,keymap-sensors";
+		status = "disabled";
+		sensors = <>;
+		triggers-per-rotation = <20>;
+	};
 };
