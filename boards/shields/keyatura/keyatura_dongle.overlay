@@ -37,3 +37,19 @@
         input-processors = <&zip_xy_scaler 1 2>;
     };
 };
+
+/ {
+	s_encoder: s_encoder {
+		compatible = "alps,ec11";
+        status = "okay";
+		a-gpios = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		steps = <24>;
+	};
+	sensors: sensors {
+		compatible = "zmk,keymap-sensors";
+		status = "okay";
+		sensors = <&s_encoder>;
+		triggers-per-rotation = <12>;
+	};
+};

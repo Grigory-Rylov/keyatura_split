@@ -93,6 +93,7 @@
        &u_mt LCTRL ENTER  &u_mt LSHFT SPACE  &u_mt LEFT_WIN BACKSPACE  &lt 2 DELETE  &lt 1 TAB  &u_mt LEFT_ALT ESCAPE
        &mkp MB1  &mkp MB2  &mkp MB3  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         NAV {
@@ -103,6 +104,7 @@
           &u_mt LCTRL ENTER  &u_mt LSHFT SPACE  &u_mt LALT BACKSPACE  &trans   &trans            &trans
        &mkp MB1  &mkp MB2  &mkp MB3  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         F_layer {
@@ -113,6 +115,7 @@
          &kp LCTRL  &kp LEFT_SHIFT  &kp LEFT_ALT  &trans   &trans          &trans
        &mkp MB1  &mkp MB2  &mkp MB3  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 
