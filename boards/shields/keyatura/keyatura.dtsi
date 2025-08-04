@@ -29,8 +29,6 @@
 		row-gpios
 			= <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
 
         col-gpios
@@ -78,20 +76,19 @@
             gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;  // connected to P0.11
         };
     };
-};
 
-/{
-	mouse_encoder: mouse_encoder {
-		compatible = "alps,ec11";
-		a-gpios = <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-		b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-		steps = <80>;
-		status = "disabled";
-	};
-	sensors: sensors {
-		compatible = "zmk,keymap-sensors";
-		status = "disabled";
-		sensors = <>;
-		triggers-per-rotation = <20>;
-	};
+    m_encoder: m_encoder {
+        compatible = "alps,ec11";
+		a-gpios = <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        steps = <20>;
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&m_encoder>;
+        triggers-per-rotation = <10>;
+    };
+
 };

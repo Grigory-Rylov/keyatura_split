@@ -21,8 +21,8 @@ build_halves () {
         -DSHIELD=keyatura_$side \
         -DZMK_EXTRA_MODULES="${ZMK_MODULE_DIRS}" \
 
-    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_$side.uf2"
-    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_$side.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_${side}_esb.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_${side}_esb.uf2"
 }
 
 build_mouse () {
@@ -41,8 +41,8 @@ build_mouse () {
         -DSHIELD=keyatura_$side \
         -DZMK_EXTRA_MODULES="${ZMK_MODULE_DIRS}"
 
-    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_$side.uf2"
-    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_$side.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_${side}_esb.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_{$side}_esb.uf2"
 }
 
 build_dongle () {
@@ -62,8 +62,8 @@ build_dongle () {
         -DSHIELD=keyatura_$side \
         -DZMK_EXTRA_MODULES="${ZMK_MODULE_DIRS}"
 
-    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_$side.uf2"
-    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_$side.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/$side/keyatura_${side}_esb.uf2"
+    cp "$CURRENT_DIR/build/$side/zephyr/zmk.uf2" "$CURRENT_DIR/build/uf_files/keyatura_${side}_esb.uf2"
 }
 
 build_reset () {
